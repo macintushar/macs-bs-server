@@ -69,10 +69,10 @@ const data = [
     }
 ]
 
-export async function GET(request: Request) {
+export async function GET() {
     return NextResponse.json({ data });
 }   
 
-export async function POST(request: Request) {
+export async function POST() {
     return NextResponse.json({ data });
 }   
