@@ -1,6 +1,4 @@
-import { Hono } from 'hono';
-
-const dataRoute = new Hono();
+import { NextResponse } from "next/server";
 
 const data = [
     {
@@ -13,17 +11,6 @@ const data = [
         "name": "3295723985y",
         "address": "tuergheoui",
         "profile_picture": "https://res.cloudinary.com/dhzdzjgtd/image/upload/v1682049358/SneakerStreet/users/default-logo_q2acc9.jpg"
-    },
-    {
-        "user_id": "69",
-        "user_type": "Buyer",
-        "username": "Satvik Khandelwal",
-        "password": "password",
-        "email": "satvikhandelwal19@gmail.com",
-        "phone": "7610033075",
-        "name": "Satvik Khandelwal",
-        "address": "shree pg sg palya",
-        "profile_picture": null
     },
     {
         "user_id": "48",
@@ -59,28 +46,6 @@ const data = [
         "profile_picture": null
     },
     {
-        "user_id": "81",
-        "user_type": "Buyer",
-        "username": "Tushar Selvakumar ",
-        "password": "password",
-        "email": "tusharselvakumar@gmail.com",
-        "phone": "87470894405",
-        "name": "Tushar Selvakumar ",
-        "address": "123, xyz",
-        "profile_picture": "https://res.cloudinary.com/dhzdzjgtd/image/upload/v1682049358/SneakerStreet/users/default-logo_q2acc9.jpg"
-    },
-    {
-        "user_id": "82",
-        "user_type": "Buyer",
-        "username": "chirag L",
-        "password": "password",
-        "email": "chirag.l@bca.christuniversity.in",
-        "phone": "9632296078",
-        "name": "chirag L",
-        "address": "y2e8y3e897er",
-        "profile_picture": "https://res.cloudinary.com/dhzdzjgtd/image/upload/v1682049358/SneakerStreet/users/default-logo_q2acc9.jpg"
-    },
-    {
         "user_id": "2",
         "user_type": "Admin",
         "username": "mac1",
@@ -89,17 +54,6 @@ const data = [
         "phone": "9154825132",
         "name": "Mac",
         "address": "123, Nike Ave., Portlad, Oregon, 97001",
-        "profile_picture": "https://res.cloudinary.com/dhzdzjgtd/image/upload/v1682049358/SneakerStreet/users/default-logo_q2acc9.jpg"
-    },
-    {
-        "user_id": "3",
-        "user_type": "Buyer",
-        "username": "Tushar Selvakumar1",
-        "password": "password",
-        "email": "tusharkumar91111@gmail.com",
-        "phone": "09110894405",
-        "name": "Tushar Selvakumar",
-        "address": "555, 8th Main, Coffee Board Layout, Hebbal",
         "profile_picture": "https://res.cloudinary.com/dhzdzjgtd/image/upload/v1682049358/SneakerStreet/users/default-logo_q2acc9.jpg"
     },
     {
@@ -115,16 +69,10 @@ const data = [
     }
 ]
 
-dataRoute.get('/', (c) => {
-    return c.text(`Received param`);
-});
+export async function GET(request: Request) {
+    return NextResponse.json({ data });
+}   
 
-dataRoute.get('/fake-users', (c) => {
-    return c.json({ data })
-})
-
-dataRoute.post('/fake-users', (c) => {
-    return c.json({ data })
-})
-
-export default dataRoute;
+export async function POST(request: Request) {
+    return NextResponse.json({ data });
+}   
