@@ -17,8 +17,9 @@ type Body = {
 
 export async function POST(request: Request) {
   const body = (await request.json()) as Body;
+  const action = body.action === "created" ? "starred" : "unstarred";
   console.log(
-    `${body.sender.login} starred the *${body.repository.full_name}* repository.`,
+    `${body.sender.login} ${action} the *${body.repository.full_name}* repository.`,
   );
 
   return NextResponse.json({ body });
