@@ -21,10 +21,18 @@ export const posts = createTable(
       .default(sql`(unixepoch())`)
       .notNull(),
     updatedAt: int("updated_at", { mode: "timestamp" }).$onUpdate(
-      () => new Date()
+      () => new Date(),
     ),
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
-  })
+  }),
 );
+
+export const stars = createTable("stars", {
+  id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+  star_count: int("star_count", { mode: "number" }),
+  createdAt: int("created_at", { mode: "timestamp" })
+    .default(sql`(unixepoch())`)
+    .notNull(),
+});
