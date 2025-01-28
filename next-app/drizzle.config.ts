@@ -7,6 +7,7 @@ export default {
   dialect: "sqlite",
   dbCredentials: {
     url: env.DATABASE_URL,
+    authToken: env.DATABASE_TOKEN,
   },
   tablesFilter: ["next-app_*"],
 } satisfies Config;
