@@ -5,7 +5,7 @@ Hi, I'm generating a chart below.
 
 <chart>
 {
-  config: {
+  chart_config: {
     meta: {
       title: "Chart Title",
       description: "Optional description",
